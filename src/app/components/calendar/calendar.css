@@ -1,0 +1,25 @@
+.calendar {
+  position: relative;
+  width: 100%;
+  border: 1px solid #ccc;  
+  font-family: Arial, sans-serif;
+}
+
+.timeline {
+  position: relative;
+}
+
+.hour-line {              
+  border-top: 1px solid #888; 
+  position: relative;
+}
+
+.event {
+  position: absolute;
+  background-color: #4285f4;
+  color: white;
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  overflow: hidden;  
+}

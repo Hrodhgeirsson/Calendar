@@ -1,0 +1,19 @@
+<div class="calendar">
+  <div class="timeline">    
+    <ng-container *ngFor="let hour of hours">      
+      <div 
+        class="hour-line" [ngStyle]="{height: hourHeight + 'px'}">{{ hour }}:00</div>
+    </ng-container> 
+        
+    <div *ngFor="let event of events"
+         class="event"
+         [ngStyle]="{
+           top: event.top + 'px',
+           height: event.height + 'px',
+           left: event.left + 'px',
+           width: event.width + 'px'
+         }">
+      {{ event.id }} ( {{ event.start }} => {{ event.duration }} min )
+    </div>
+  </div>
+</div>
