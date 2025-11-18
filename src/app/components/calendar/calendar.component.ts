@@ -31,7 +31,7 @@ export class CalendarComponent implements OnInit {
     this.hours = Array.from({ length: 24 }, (_, i) => i)        
 
     if (isPlatformBrowser(this.platformId)) {
-      this.columnWidth = window.innerWidth - 80 // Fix pas top pour éviter le dépassement en largeur (50 de timeline et 30 de marge)
+      this.columnWidth = window.innerWidth - 67 // Fix pas top pour éviter le dépassement en largeur (50 de timeline et 17 de marge)
       this.calendarHeight = window.innerHeight - 50
       this.hourHeight = this.calendarHeight / 24
     }    
@@ -41,7 +41,7 @@ export class CalendarComponent implements OnInit {
   @HostListener('window:resize')
   onResize() {
     if (isPlatformBrowser(this.platformId)) {
-      this.columnWidth = window.innerWidth - 80 // Fix pas top pour éviter le dépassement en largeur (50 de timeline et 30 de marge)
+      this.columnWidth = window.innerWidth - 67 // Fix pas top pour éviter le dépassement en largeur (50 de timeline et 17 de marge)
       this.calendarHeight = window.innerHeight - 50
       this.hourHeight = this.calendarHeight / 24      
     }
