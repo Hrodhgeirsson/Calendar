@@ -31,8 +31,8 @@ export class CalendarComponent implements OnInit {
     this.hours = Array.from({ length: 24 }, (_, i) => i)        
 
     if (isPlatformBrowser(this.platformId)) {
-      this.columnWidth = window.innerWidth
-      this.calendarHeight = window.innerHeight
+      this.columnWidth = window.innerWidth - 80 // Fix pas top pour éviter le dépassement en largeur (50 de timeline et 30 de marge)
+      this.calendarHeight = window.innerHeight - 50
       this.hourHeight = this.calendarHeight / 24
     }    
     this.events = this.computeEventPositions(this.events, this.columnWidth)
@@ -41,8 +41,8 @@ export class CalendarComponent implements OnInit {
   @HostListener('window:resize')
   onResize() {
     if (isPlatformBrowser(this.platformId)) {
-      this.columnWidth = window.innerWidth
-      this.calendarHeight = window.innerHeight
+      this.columnWidth = window.innerWidth - 80 // Fix pas top pour éviter le dépassement en largeur (50 de timeline et 30 de marge)
+      this.calendarHeight = window.innerHeight - 50
       this.hourHeight = this.calendarHeight / 24      
     }
 
@@ -121,7 +121,7 @@ private positionStackedGroup(group: CalendarEvent[], columnWidth: number) {
       ev.top = this.getTop(ev.start)
       ev.height = this.getHeight(ev.duration)
       ev.width = width
-      ev.left = colIndex * width
+      ev.left = colIndex * width + 50 // 50 = Largeur de la timeline (surement moyen de faire mieux)
     })
   })
 }
